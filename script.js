@@ -28,6 +28,7 @@ class Render {
       let a = localStorage.getItem("usersStorage");
       let b = JSON.parse(a);
       this.usersArray = b;
+      // this.usersArray = JSON.parse(localStorage.getItem("usersStorage"));
    }
    printHtml() {
       this.usersArray.forEach((user) => {
@@ -80,6 +81,10 @@ class Shop {
    regenerationToObject() {
       if (!localStorage.getItem("newStorageForProducts")) {
          this.addToLocalStorage();
+      } else {
+         this.products = JSON.parse(
+            localStorage.getItem("newStorageForProducts")
+         );
       }
    }
 }
